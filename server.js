@@ -18,10 +18,9 @@ if (!mongoURI) {
     process.exit(1);
 }
 mongoose.connect(mongoURI)
-    .then(() => console.log('✅ MongoDB Connected'))
-    .catch(err => console.log("❌ MongoDB Connection Error:", err));
+    .then(() => console.log('MongoDB Connected'))
+    .catch(err => console.log(" MongoDB Connection Error:", err));
 
-// Models
 const Product = mongoose.model('Product', new mongoose.Schema({
     name: { type: String, required: true },
     price: { type: Number, required: true },
@@ -44,7 +43,6 @@ const Order = mongoose.model('Order', new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
 }));
 
-// Middleware
 const authenticate = (req, res, next) => {
     const token = req.cookies.token || req.header("Authorization")?.split(" ")[1];
     if (!token) return res.status(401).json({ message: 'Access Denied. No Token Provided.' });
@@ -65,10 +63,8 @@ const isAdmin = (req, res, next) => {
     next();
 };
 
-// Routes
-app.get('/', (req, res) => res.send('E-commerce API is running 🚀'));
+app.get('/', (req, res) => res.send('E-commerce API is running '));
 
-// 🔹 User Authentication
 app.post('/register', async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -112,7 +108,6 @@ app.post('/logout', (req, res) => {
     res.json({ message: 'Logged out successfully' });
 });
 
-// 🔹 Users Routes (Admin Only)
 app.get('/users', authenticate, isAdmin, async (req, res) => {
     const users = await User.find();
     res.json(users);
@@ -136,7 +131,6 @@ app.put('/users/:id/role', authenticate, isAdmin, async (req, res) => {
     }
 });
 
-// 🔹 Product Routes
 app.post('/products', authenticate, isAdmin, async (req, res) => {
     const product = new Product(req.body);
     await product.save();
@@ -158,7 +152,6 @@ app.delete('/products/:id', authenticate, isAdmin, async (req, res) => {
     res.json({ message: 'Product deleted' });
 });
 
-// 🔹 Orders Routes
 app.post('/orders', authenticate, async (req, res) => {
     const { productIds } = req.body;
     if (!productIds || productIds.length === 0) return res.status(400).json({ message: 'At least one product is required' });
@@ -184,4 +177,4 @@ app.put('/orders/:id', authenticate, isAdmin, async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
