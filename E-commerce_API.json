@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "46daa103-e299-4bfb-84d9-29306e82c262",
+		"name": "E-commerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41934695"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Runark\",\r\n  \"email\": \"runar@test.com\",\r\n  \"password\": \"123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"runar@test.com\",\r\n  \"password\": \"123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/products",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTcxNjU2ZjE1N2ViMDhkZDk5MWM2YiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzM5MDAzNTQ2LCJleHAiOjE3MzkwMDcxNDZ9._WpYAUZS1MwPZn0N3b76yXXCuU0jmNY17-0RTd63bzo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Wireless Earphones\",\r\n  \"price\": 150,\r\n  \"description\": \"Noise-cancelling earphones\",\r\n  \"category\": \"Electronics\",\r\n  \"stock\": 20\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/products/67a717dbf157eb08dd991c71",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTY4MGVmMDc1MTkwNGRmM2FmNWJiNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTAwNDA3NywiZXhwIjoxNzM5MDA3Njc3fQ.YKa2zWyN1dw6QZmyGklUNOGkkU1BfJDUctsGWsSRGcM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"price\": 140,\r\n  \"stock\": 25\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/products/67a717dbf157eb08dd991c71",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"67a717dbf157eb08dd991c71"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/products/67a717dbf157eb08dd991c71",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTY4MGVmMDc1MTkwNGRmM2FmNWJiNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTAwNDA3NywiZXhwIjoxNzM5MDA3Njc3fQ.YKa2zWyN1dw6QZmyGklUNOGkkU1BfJDUctsGWsSRGcM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/products/67a717dbf157eb08dd991c71",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"67a717dbf157eb08dd991c71"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTY4MGVmMDc1MTkwNGRmM2FmNWJiNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTAwNDA3NywiZXhwIjoxNzM5MDA3Njc3fQ.YKa2zWyN1dw6QZmyGklUNOGkkU1BfJDUctsGWsSRGcM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productIds\": [\"67a71256e0bf73d3a34addd0\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/orders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

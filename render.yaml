@@ -1,0 +1,13 @@
+
+services:
+  - type: web
+    name: book-api
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: WEATHER_API_KEY
+        sync: false
